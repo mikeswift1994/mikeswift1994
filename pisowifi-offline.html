@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Piso WiFi – Offline</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      padding: 40px 32px;
+      max-width: 420px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .icon {
+      font-size: 72px;
+      line-height: 1;
+      margin-bottom: 16px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50%       { transform: scale(1.08); opacity: 0.75; }
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 28px;
+      line-height: 1.5;
+    }
+
+    .info-box {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 28px;
+      text-align: left;
+    }
+
+    .info-box p {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .info-box p:last-child { margin-bottom: 0; }
+
+    .info-box span.bullet {
+      color: #ffd700;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 36px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #f7971e, #ffd200);
+      color: #1a1a2e;
+      box-shadow: 0 4px 16px rgba(247, 151, 30, 0.45);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(247, 151, 30, 0.6);
+    }
+
+    .footer {
+      margin-top: 28px;
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 80, 80, 0.2);
+      border: 1px solid rgba(255, 80, 80, 0.4);
+      border-radius: 50px;
+      padding: 4px 14px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #ff8080;
+      margin-bottom: 20px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      background: #ff5050;
+      border-radius: 50%;
+      animation: blink 1.2s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.2; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="icon">📶</div>
+
+    <div class="status-badge">
+      <span class="dot"></span> Offline
+    </div>
+
+    <h1>No Internet Access</h1>
+    <p class="subtitle">
+      Your Piso WiFi session has ended or<br />
+      no internet connection is available.
+    </p>
+
+    <div class="info-box">
+      <p><span class="bullet">💰</span> Insert a coin to start a new session.</p>
+      <p><span class="bullet">⏱️</span> Your remaining time will appear on screen.</p>
+      <p><span class="bullet">📡</span> Make sure you are connected to the correct WiFi network.</p>
+      <p><span class="bullet">🔄</span> If the problem persists, restart the device or contact the admin.</p>
+    </div>
+
+    <button class="btn btn-primary" aria-label="Reload page" onclick="window.location.reload()">
+      🔄 Try Again
+    </button>
+
+    <p class="footer">Piso WiFi Offline Portal &mdash; &copy; <span id="year" aria-label="current year"></span></p>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
